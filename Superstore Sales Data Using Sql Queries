@@ -1,0 +1,27 @@
+🧮 Important SQL Queries
+1. ✅ Top 5 Products by Sales:
+SELECT Product_Name, SUM(Sales) AS Total_Sales
+FROM superstore_sales
+GROUP BY Product_Name
+ORDER BY Total_Sales DESC
+LIMIT 5;
+2. ✅ Most Profitable Regions:
+SELECT Region, SUM(Profit) AS Total_Profit
+FROM superstore_sales
+GROUP BY Region
+ORDER BY Total_Profit DESC;
+3. ✅ Month-wise Sales Analysis:
+SELECT strftime('%Y-%m', Order_Date) AS Month, SUM(Sales) AS Total_Sales
+FROM superstore_sales
+GROUP BY Month
+ORDER BY Month;
+4. ✅ Customer-wise Total Orders:
+SELECT Customer_Name, COUNT(DISTINCT Order_ID) AS Total_Orders
+FROM superstore_sales
+GROUP BY Customer_Name
+ORDER BY Total_Orders DESC
+LIMIT 10;
+5. ✅ Category-wise Sales and Profit:
+SELECT Category, SUM(Sales) AS Total_Sales, SUM(Profit) AS Total_Profit
+FROM superstore_sales
+GROUP BY Category;
